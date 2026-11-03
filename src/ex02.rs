@@ -7,14 +7,14 @@
 /// Solana charges 5_000 lamports per signature. This is only the base fee;
 /// priority fees are added separately.
 pub fn base_fee(signatures: u64) -> u64 {
-    todo!()
+    signatures*5000
 }
 
 /// Sum every amount in the slice.
 ///
 /// An empty slice sums to zero.
 pub fn total(amounts: &[u64]) -> u64 {
-    todo!()
+    
 }
 
 /// Count how many amounts are strictly greater than `threshold`.
