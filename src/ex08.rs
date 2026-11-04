@@ -22,7 +22,11 @@ pub struct BankAccount {
 impl BankAccount {
     /// Create an account with zero lamports and an empty history.
     pub fn new(owner: &str) -> Self {
-        todo!()
+        Self {
+            owner: owner.to_string(),
+            lamports: 0,
+            history: Vec::new(),
+        }
     }
 
     /// Deposit lamports and record it in the history.
@@ -30,7 +34,19 @@ impl BankAccount {
     /// Return `BankError::ZeroAmount` for a zero deposit. A successful deposit
     /// appends `"deposit <amount>"` to the history.
     pub fn deposit(&mut self, amount: u64) -> Result<(), BankError> {
-        todo!()
+        // validate
+        if amount == 0 {
+            return Err(BankError::ZeroAmount);
+        }
+
+        // add the mulla
+        self.lamports += amount;
+
+        // record the history using format
+        let note = format!("deposit {}", amount);
+        self.history.push(note);
+
+        Ok(())
     }
 
     /// Withdraw lamports and record it in the history.
@@ -39,11 +55,31 @@ impl BankAccount {
     /// `BankError::InsufficientFunds` when the balance is too low. A successful
     /// withdrawal appends `"withdraw <amount>"` to the history.
     pub fn withdraw(&mut self, amount: u64) -> Result<(), BankError> {
-        todo!()
+        //validate zero amount
+        if amount == 0 {
+            return Err(BankError::ZeroAmount);
+        }
+
+        //validate sufficient funds
+        if amount > self.lamports {
+            return Err(BankError::InsufficientFunds {
+                available: self.lamports,
+                required: amount,
+            });
+        }
+
+        //remove the amount from balance
+        self.lamports -= amount;
+
+        //record the history
+        let note = format!("withdraw {}", amount);
+        self.history.push(note);
+
+        Ok(())
     }
 
     /// Return the balance in whole SOL, dropping any remainder.
     pub fn balance_in_sol(&self) -> u64 {
-        todo!()
+        self.lamports / 1_000_000_000
     }
 }
