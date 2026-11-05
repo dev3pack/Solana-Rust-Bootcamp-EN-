@@ -13,19 +13,22 @@ pub const LAMPORTS_PER_SOL: u64 = 1_000_000_000;
 ///
 /// `sol_to_lamports(2)` should return `2_000_000_000`.
 pub fn sol_to_lamports(sol: u64) -> u64 {
-    todo!()
+    let lamports: u64 = sol * LAMPORTS_PER_SOL;
+    lamports
 }
 
 /// Convert lamports into whole SOL, dropping any remainder.
 ///
 /// `lamports_to_sol(2_500_000_000)` should return `2`.
 pub fn lamports_to_sol(lamports: u64) -> u64 {
-    todo!()
+    let sol: u64 = lamports / LAMPORTS_PER_SOL;
+    sol
 }
 
 /// Add a bonus to a balance and return the new balance.
 pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
-    todo!()
+    let new_balance: u64 = balance + bonus;
+    new_balance
 }
 
 /// Double a value.
@@ -33,10 +36,12 @@ pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
 /// Use shadowing in your implementation: declare a new `value` instead of
 /// mutating the parameter.
 pub fn double(value: u64) -> u64 {
-    todo!()
+    let value: u64 = value * 2;
+    value
 }
 
 /// Return `true` when the balance is zero.
 pub fn is_empty(balance: u64) -> bool {
-    todo!()
+    let is_empty: bool = balance == 0;
+    is_empty
 }
