@@ -45,3 +45,9 @@ pub fn is_empty(balance: u64) -> bool {
         return false;
     }
 }
+
+fn main() {
+    let lamports_balance: u64 = 100_000_000;
+    println!("Balance in lamports: {lamports_balance}");
+    return;
+}
