@@ -15,7 +15,7 @@ impl Account {
     ///
     /// The owner of a new account is the `"system"` program.
     pub fn new(address: String) -> Self {
-        todo!()
+        let owner = address
     }
 
     /// Add lamports to the account.
