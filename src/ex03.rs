@@ -7,28 +7,24 @@
 /// `make_label(String::from("alice"))` should return `"account:alice"`.
 /// The function takes ownership of the name.
 pub fn make_label(owner: String) -> String {
-    format!("account:{}", owner)
+    todo!()
 }
 
 /// Return an owned copy of a borrowed string.
 ///
 /// The input is borrowed with `&str`, so the caller keeps ownership.
 pub fn duplicate(text: &str) -> String {
-    text.to_string()
+    todo!()
 }
 
 /// Take ownership of an account name and return it together with its length.
 ///
 /// The caller cannot use the original `String` after this call.
 pub fn take_and_return(account: String) -> (String, usize) {
-    let len: usize = account.len();
-
-    (account, len)
+    todo!()
 }
 
 /// Consume a vector of account names and return how many there were.
 pub fn consume_all(accounts: Vec<String>) -> usize {
-    let no_of_acc: usize = accounts.len();
-
-    no_of_acc
+    todo!()
 }

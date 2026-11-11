@@ -22,11 +22,7 @@ pub struct BankAccount {
 impl BankAccount {
     /// Create an account with zero lamports and an empty history.
     pub fn new(owner: &str) -> Self {
-        Self {
-            owner: owner.to_string(),
-            lamports: 0,
-            history: Vec::new(),
-        }
+        todo!()
     }
 
     /// Deposit lamports and record it in the history.
@@ -34,13 +30,7 @@ impl BankAccount {
     /// Return `BankError::ZeroAmount` for a zero deposit. A successful deposit
     /// appends `"deposit <amount>"` to the history.
     pub fn deposit(&mut self, amount: u64) -> Result<(), BankError> {
-        if amount == 0 {
-            Err(BankError::ZeroAmount)
-        } else {
-            self.lamports += amount;
-            self.history.push(format!("deposit {}", amount));
-            Ok(())
-        }
+        todo!()
     }
 
     /// Withdraw lamports and record it in the history.
@@ -49,22 +39,11 @@ impl BankAccount {
     /// `BankError::InsufficientFunds` when the balance is too low. A successful
     /// withdrawal appends `"withdraw <amount>"` to the history.
     pub fn withdraw(&mut self, amount: u64) -> Result<(), BankError> {
-        if amount == 0 {
-            Err(BankError::ZeroAmount)
-        } else if amount > self.lamports {
-            Err(BankError::InsufficientFunds {
-                available: self.lamports,
-                required: amount,
-            })
-        } else {
-            self.lamports -= amount;
-            self.history.push(format!("withdraw {}", amount));
-            Ok(())
-        }
+        todo!()
     }
 
     /// Return the balance in whole SOL, dropping any remainder.
     pub fn balance_in_sol(&self) -> u64 {
-        self.lamports / 1_000_000_000
+        todo!()
     }
 }
