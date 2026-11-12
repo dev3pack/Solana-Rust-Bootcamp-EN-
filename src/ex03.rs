@@ -22,7 +22,9 @@ pub fn duplicate(text: &str) -> String {
 ///
 /// The caller cannot use the original `String` after this call.
 pub fn take_and_return(account: String) -> (String, usize) {
-    todo!()
+    let length = account.len();
+    let result = (account, length);
+    result
 }
 
 /// Consume a vector of account names and return how many there were.
