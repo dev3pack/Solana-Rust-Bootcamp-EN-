@@ -34,5 +34,5 @@ pub fn count_writable(flags: &[bool]) -> usize {
 
 /// Append a note to a history through a mutable reference.
 pub fn append_note(history: &mut Vec<String>, note: &str) {
-    todo!()
+    history.push(note.to_string());
 }
