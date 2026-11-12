@@ -26,7 +26,7 @@ pub fn lamports_to_sol(lamports: u64) -> u64 {
 
 /// Add a bonus to a balance and return the new balance.
 pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
-    todo!()
+    balance + bonus
 }
 
 /// Double a value.
@@ -34,10 +34,11 @@ pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
 /// Use shadowing in your implementation: declare a new `value` instead of
 /// mutating the parameter.
 pub fn double(value: u64) -> u64 {
-    todo!()
+    let value = value * 2;
+    value
 }
 
 /// Return `true` when the balance is zero.
 pub fn is_empty(balance: u64) -> bool {
-    todo!()
+    balance == 0
 }
