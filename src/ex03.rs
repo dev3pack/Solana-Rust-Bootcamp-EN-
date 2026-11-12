@@ -15,7 +15,7 @@ pub fn make_label(owner: String) -> String {
 ///
 /// The input is borrowed with `&str`, so the caller keeps ownership.
 pub fn duplicate(text: &str) -> String {
-    todo!()
+    text.to_string()
 }
 
 /// Take ownership of an account name and return it together with its length.
