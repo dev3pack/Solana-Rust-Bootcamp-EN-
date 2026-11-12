@@ -2,10 +2,7 @@ use rust_basics::ex07::*;
 
 #[test]
 fn zero_amount_is_rejected() {
-    assert_eq!(
-        validate("alice", "bob", 0),
-        Err(TransferError::ZeroAmount)
-    );
+    assert_eq!(validate("alice", "bob", 0), Err(TransferError::ZeroAmount));
 }
 
 #[test]
@@ -34,9 +31,6 @@ fn successful_transfer_returns_the_remaining_balance() {
 
 #[test]
 fn pay_propagates_errors_and_succeeds() {
-    assert_eq!(
-        pay(100, "alice", "bob", 0),
-        Err(TransferError::ZeroAmount)
-    );
+    assert_eq!(pay(100, "alice", "bob", 0), Err(TransferError::ZeroAmount));
     assert_eq!(pay(100, "alice", "bob", 40), Ok(60));
 }
