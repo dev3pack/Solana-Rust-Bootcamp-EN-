@@ -7,7 +7,7 @@
 /// `make_label(String::from("alice"))` should return `"account:alice"`.
 /// The function takes ownership of the name.
 pub fn make_label(owner: String) -> String {
-    format!("account: {owner}")
+    format!("account:{owner}")
 
 }
 
@@ -29,5 +29,5 @@ pub fn take_and_return(account: String) -> (String, usize) {
 
 /// Consume a vector of account names and return how many there were.
 pub fn consume_all(accounts: Vec<String>) -> usize {
-    todo!()
+    accounts.len()
 }
