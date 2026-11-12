@@ -6,7 +6,12 @@
 ///
 /// The slice is borrowed, so the caller keeps ownership.
 pub fn total(amounts: &[u64]) -> u64 {
-    todo!()
+    let mut sum =0;
+    for amount in amounts{
+        
+        sum += *amount;
+    }
+    sum
 }
 
 /// Add a fee to a balance through a mutable reference.
