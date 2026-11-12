@@ -39,5 +39,9 @@ pub fn count_above(amounts: &[u64], threshold: u64) -> usize {
 ///
 /// Return the amount that can actually be transferred.
 pub fn clamp_transfer(amount: u64, balance: u64) -> u64 {
-    todo!()
+    if amount > balance {
+        balance
+    }else{
+        amount
+    }
 }
