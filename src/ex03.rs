@@ -7,7 +7,8 @@
 /// `make_label(String::from("alice"))` should return `"account:alice"`.
 /// The function takes ownership of the name.
 pub fn make_label(owner: String) -> String {
-    todo!()
+    format!("account: {owner}")
+
 }
 
 /// Return an owned copy of a borrowed string.
