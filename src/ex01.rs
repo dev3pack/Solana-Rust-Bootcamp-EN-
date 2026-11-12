@@ -21,7 +21,7 @@ pub fn sol_to_lamports(sol: u64) -> u64 {
 ///
 /// `lamports_to_sol(2_500_000_000)` should return `2`.
 pub fn lamports_to_sol(lamports: u64) -> u64 {
-    todo!()
+    lamports / LAMPORTS_PER_SOL 
 }
 
 /// Add a bonus to a balance and return the new balance.
