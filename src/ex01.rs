@@ -13,7 +13,8 @@ pub const LAMPORTS_PER_SOL: u64 = 1_000_000_000;
 ///
 /// `sol_to_lamports(2)` should return `2_000_000_000`.
 pub fn sol_to_lamports(sol: u64) -> u64 {
-    todo!()
+     LAMPORTS_PER_SOL * sol 
+    
 }
 
 /// Convert lamports into whole SOL, dropping any remainder.
