@@ -15,20 +15,24 @@ pub fn base_fee(signatures: u64) -> u64 {
 /// An empty slice sums to zero.
 pub fn total(amounts: &[u64]) -> u64 {
     let mut sum = 0;
-    for &amount in amounts {
-        sum += amount;
+
+    for amount in amounts {
+        sum += *amount;
     }
+
     sum
 }
 
 /// Count how many amounts are strictly greater than `threshold`.
 pub fn count_above(amounts: &[u64], threshold: u64) -> usize {
     let mut count = 0;
-    for &amount in amounts {
-        if amount > threshold {
+
+    for amount in amounts {
+        if *amount > threshold {
             count += 1;
         }
     }
+
     count
 }
 

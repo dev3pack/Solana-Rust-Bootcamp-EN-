@@ -40,6 +40,7 @@ impl BankAccount {
 
         self.lamports += amount;
         self.history.push(format!("deposit {amount}"));
+
         Ok(())
     }
 
@@ -52,6 +53,7 @@ impl BankAccount {
         if amount == 0 {
             return Err(BankError::ZeroAmount);
         }
+
         if amount > self.lamports {
             return Err(BankError::InsufficientFunds {
                 available: self.lamports,
@@ -61,11 +63,12 @@ impl BankAccount {
 
         self.lamports -= amount;
         self.history.push(format!("withdraw {amount}"));
+
         Ok(())
     }
 
     /// Return the balance in whole SOL, dropping any remainder.
     pub fn balance_in_sol(&self) -> u64 {
-        crate::ex01::lamports_to_sol(self.lamports)
+        self.lamports / 1_000_000_000
     }
 }

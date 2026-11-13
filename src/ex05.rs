@@ -44,6 +44,6 @@ impl Account {
     ///
     /// This is for display only. Never use a floating-point number for money.
     pub fn balance_in_sol(&self) -> u64 {
-        crate::ex01::lamports_to_sol(self.lamports)
+        self.lamports / 1_000_000_000
     }
 }

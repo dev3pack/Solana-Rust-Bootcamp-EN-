@@ -6,7 +6,13 @@
 ///
 /// The slice is borrowed, so the caller keeps ownership.
 pub fn total(amounts: &[u64]) -> u64 {
-    crate::ex02::total(amounts)
+    let mut sum = 0;
+
+    for amount in amounts {
+        sum += *amount;
+    }
+
+    sum
 }
 
 /// Add a fee to a balance through a mutable reference.
@@ -19,11 +25,13 @@ pub fn add_fee(amount: &mut u64, fee: u64) {
 /// Count how many accounts are writable.
 pub fn count_writable(flags: &[bool]) -> usize {
     let mut count = 0;
-    for &writable in flags {
-        if writable {
+
+    for flag in flags {
+        if *flag {
             count += 1;
         }
     }
+
     count
 }
 

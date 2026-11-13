@@ -34,7 +34,7 @@ pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
 /// mutating the parameter.
 pub fn double(value: u64) -> u64 {
     let value = value * 2;
-    value
+     value
 }
 
 /// Return `true` when the balance is zero.

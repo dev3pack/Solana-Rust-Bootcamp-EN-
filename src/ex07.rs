@@ -20,9 +20,11 @@ pub fn validate(from: &str, to: &str, amount: u64) -> Result<(), TransferError> 
     if amount == 0 {
         return Err(TransferError::ZeroAmount);
     }
+
     if from == to {
         return Err(TransferError::SameAccount);
     }
+
     Ok(())
 }
 
@@ -31,14 +33,21 @@ pub fn validate(from: &str, to: &str, amount: u64) -> Result<(), TransferError> 
 /// Call `validate` first and propagate its error with `?`. Then return
 /// `InsufficientFunds` when `amount > balance`. On success return
 /// `Ok(balance - amount)`.
-pub fn transfer(balance: u64, from: &str, to: &str, amount: u64) -> Result<u64, TransferError> {
+pub fn transfer(
+    balance: u64,
+    from: &str,
+    to: &str,
+    amount: u64,
+) -> Result<u64, TransferError> {
     validate(from, to, amount)?;
+
     if amount > balance {
         return Err(TransferError::InsufficientFunds {
             available: balance,
             required: amount,
         });
     }
+
     Ok(balance - amount)
 }
 
