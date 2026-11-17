@@ -23,8 +23,8 @@ pub enum Instruction {
 pub fn kind(ix: &Instruction) -> &'static str {
     match ix {
         Instruction::Transfer { .. } => "transfer",
-        Instruction::CreateAccount {address} => "create",
-        Instruction::Close(address) => "close",
+        Instruction::CreateAccount { .. } => "create",
+        Instruction::Close(_) => "close",
     }
 }
 

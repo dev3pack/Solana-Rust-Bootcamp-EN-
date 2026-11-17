@@ -2,7 +2,6 @@
 //!
 //! Read `tasks/ex02.md` first. Replace each `todo!()` with an implementation.
 
-use std::arch::x86_64::_MM_MANTISSA_SIGN_ENUM;
 
 /// The base fee for a transaction, in lamports.
 ///

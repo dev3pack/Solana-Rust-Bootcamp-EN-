@@ -39,7 +39,7 @@ pub fn transfer(
 ) -> Result<u64, TransferError> {
     validate(from, to, amount)?;
     if amount > balance {
-        return Err((TransferError::InsufficientFunds { available: (balance), required: (amount) }))
+        return Err(TransferError::InsufficientFunds { available: (balance), required: (amount) })
     }
     Ok(balance - amount)
 }
