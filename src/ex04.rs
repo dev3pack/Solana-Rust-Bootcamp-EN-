@@ -6,22 +6,26 @@
 ///
 /// The slice is borrowed, so the caller keeps ownership.
 pub fn total(amounts: &[u64]) -> u64 {
-    todo!()
+    let slice_of_amounts: &[u64] = amounts;
+    let sum: u64 = slice_of_amounts.iter().sum();
+    sum
 }
 
 /// Add a fee to a balance through a mutable reference.
 ///
 /// The function returns nothing. The caller's value must change.
 pub fn add_fee(amount: &mut u64, fee: u64) {
-    todo!()
+    *amount += fee;
 }
 
 /// Count how many accounts are writable.
 pub fn count_writable(flags: &[bool]) -> usize {
-    todo!()
+    let account_count = flags.iter().filter(|&&flag| flag).count();
+    account_count
 }
 
 /// Append a note to a history through a mutable reference.
 pub fn append_note(history: &mut Vec<String>, note: &str) {
-    todo!()
+    let history_note = note.to_string();
+    history.push(history_note);
 }

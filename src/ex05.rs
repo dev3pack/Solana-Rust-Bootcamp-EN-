@@ -2,25 +2,30 @@
 //!
 //! Read `tasks/ex05.md` first. Replace each `todo!()` with an implementation.
 
-/// A simplified Solana account.
+/// A simplified Solana account that creates a new owner address with zero lamports, and allows deposits and withdrawals.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Account {
     pub address: String,
     pub lamports: u64,
     pub owner: String,
-}
+} 
 
 impl Account {
     /// Create an account with zero lamports.
     ///
     /// The owner of a new account is the `"system"` program.
     pub fn new(address: String) -> Self {
-        todo!()
+        let account = String::from("system");
+        Account {
+            address,
+            lamports: 0,
+            owner: account,
+        }
     }
 
     /// Add lamports to the account.
     pub fn deposit(&mut self, amount: u64) {
-        todo!()
+        self.lamports += amount;
     }
 
     /// Remove lamports from the account.
@@ -28,13 +33,19 @@ impl Account {
     /// Return `true` when the withdrawal succeeded. Return `false` and leave
     /// the balance unchanged when there are not enough lamports.
     pub fn withdraw(&mut self, amount: u64) -> bool {
-        todo!()
+        if self.lamports >= amount {
+            self.lamports -= amount;
+            true
+        } else {
+            false
+        }
     }
 
     /// Return the balance in whole SOL, dropping any remainder.
     ///
     /// This is for display only. Never use a floating-point number for money.
     pub fn balance_in_sol(&self) -> u64 {
-        todo!()
+        let balance = &self.lamports / 1_000_000_000;
+        balance
     }
 }
