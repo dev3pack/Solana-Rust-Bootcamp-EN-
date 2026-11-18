@@ -17,13 +17,13 @@ pub enum TransferError {
 /// 2. `SameAccount` when `from == to`
 /// 3. `Ok(())` otherwise
 pub fn validate(from: &str, to: &str, amount: u64) -> Result<(), TransferError> {
-  if amount == 0 {
-    return Err(TransferError::ZeroAmount);
-  }
-  if from == to {
-    return Err(TransferError::SameAccount);
-  }
-  Ok(())
+    if amount == 0 {
+        return Err(TransferError::ZeroAmount);
+    }
+    if from == to {
+        return Err(TransferError::SameAccount);
+    }
+    Ok(())
 }
 
 /// Validate a transfer and return the sender's remaining balance.
@@ -31,13 +31,8 @@ pub fn validate(from: &str, to: &str, amount: u64) -> Result<(), TransferError> 
 /// Call `validate` first and propagate its error with `?`. Then return
 /// `InsufficientFunds` when `amount > balance`. On success return
 /// `Ok(balance - amount)`.
-pub fn transfer(
-    balance: u64,
-    from: &str,
-    to: &str,
-    amount: u64,
-) -> Result<u64, TransferError> {
-        validate(from, to, amount)?;
+pub fn transfer(balance: u64, from: &str, to: &str, amount: u64) -> Result<u64, TransferError> {
+    validate(from, to, amount)?;
     if amount > balance {
         return Err(TransferError::InsufficientFunds {
             available: balance,
@@ -54,4 +49,3 @@ pub fn pay(balance: u64, from: &str, to: &str, amount: u64) -> Result<u64, Trans
     let remaining = transfer(balance, from, to, amount)?;
     Ok(remaining)
 }
-
