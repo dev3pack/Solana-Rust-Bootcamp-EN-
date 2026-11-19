@@ -30,7 +30,7 @@ impl BankAccount {
         if amount == 0 {
             return Err(BankError::ZeroAmount);
         }
-        
+
         self.lamports += amount;
         self.history.push(format!("deposit {}", amount));
         Ok(())
@@ -41,14 +41,14 @@ impl BankAccount {
         if amount == 0 {
             return Err(BankError::ZeroAmount);
         }
-        
+
         if amount > self.lamports {
             return Err(BankError::InsufficientFunds {
                 available: self.lamports,
                 required: amount,
             });
         }
-        
+
         self.lamports -= amount;
         self.history.push(format!("withdraw {}", amount));
         Ok(())

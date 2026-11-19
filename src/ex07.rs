@@ -19,14 +19,14 @@ pub fn validate(from: &str, to: &str, amount: u64) -> Result<(), TransferError> 
 
 pub fn transfer(balance: u64, from: &str, to: &str, amount: u64) -> Result<u64, TransferError> {
     validate(from, to, amount)?; // The ? operator automatically returns early if Err
-    
+
     if amount > balance {
         return Err(TransferError::InsufficientFunds {
             available: balance,
             required: amount,
         });
     }
-    
+
     Ok(balance - amount)
 }
 
