@@ -24,6 +24,7 @@ pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
 ///
 /// Use shadowing in your implementation: declare a new `value` instead of
 /// mutating the parameter.
+#[allow(clippy::let_and_return)]
 pub fn double(value: u64) -> u64 {
     let value = value * 2;
     value
