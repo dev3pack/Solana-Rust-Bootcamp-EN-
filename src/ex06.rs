@@ -21,14 +21,22 @@ pub enum Instruction {
 
 /// Return the instruction kind: `"transfer"`, `"create"`, or `"close"`.
 pub fn kind(ix: &Instruction) -> &'static str {
-    todo!()
+    match *ix {
+        Instruction::CreateAccount { .. } => "create",
+        Instruction::Transfer { .. } => "transfer",
+        Instruction::Close(..) => "close",
+    }
 }
 
 /// Return how many lamports the instruction moves.
 ///
 /// Only `Transfer` moves lamports. Every other variant returns `0`.
 pub fn lamports_moved(ix: &Instruction) -> u64 {
-    todo!()
+    match ix {
+        Instruction::CreateAccount { .. } => 0,
+        Instruction::Transfer { lamports, .. } => *lamports,
+        Instruction::Close(..) => 0,
+    }
 }
 
 /// Return the account that is the main subject of the instruction.
@@ -36,5 +44,9 @@ pub fn lamports_moved(ix: &Instruction) -> u64 {
 /// For `Transfer` return the sender. For `CreateAccount` return the new
 /// address. For `Close` return the address being closed.
 pub fn account_touched(ix: &Instruction) -> &str {
-    todo!()
+    match ix {
+        Instruction::CreateAccount { address } => address,
+        Instruction::Transfer { from, .. } => from,
+        Instruction::Close(address) => address,
+    }
 }
