@@ -1,6 +1,6 @@
 //! ex01 - Variables and types.
 //!
-//! Read `tasks/ex01.md` first. Replace each `todo!()` with an implementation.
+//! Read `tasks/ex01.md` first. Replace each `todo!()` with implementation.
 
 /// The number of lamports in one SOL.
 ///
