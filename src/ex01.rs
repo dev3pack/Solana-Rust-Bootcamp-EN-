@@ -9,34 +9,35 @@
 /// so the exercise has no dependencies.
 pub const LAMPORTS_PER_SOL: u64 = 1_000_000_000;
 
-/// Convert whole SOL into lamports.
+/// Convert whole SOL into lamports.(done)
 ///
-/// `sol_to_lamports(2)` should return `2_000_000_000`.
+/// `sol_to_lamports(2)` should return `2_000_000_000`.(done)
 pub fn sol_to_lamports(sol: u64) -> u64 {
-    todo!()
+    sol * LAMPORTS_PER_SOL
 }
 
-/// Convert lamports into whole SOL, dropping any remainder.
+/// Convert lamports into whole SOL, dropping any remainder.(done)
 ///
-/// `lamports_to_sol(2_500_000_000)` should return `2`.
+/// `lamports_to_sol(2_500_000_000)` should return `2`.(done)
 pub fn lamports_to_sol(lamports: u64) -> u64 {
-    todo!()
+    lamports / LAMPORTS_PER_SOL
 }
 
-/// Add a bonus to a balance and return the new balance.
+/// Add a bonus to a balance and return the new balance.(done)
 pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
-    todo!()
+    balance + bonus
 }
 
 /// Double a value.
 ///
 /// Use shadowing in your implementation: declare a new `value` instead of
-/// mutating the parameter.
+/// mutating the parameter.(done)
 pub fn double(value: u64) -> u64 {
-    todo!()
+    let value = value * 2;
+    value
 }
 
-/// Return `true` when the balance is zero.
+/// Return `true` when the balance is zero.(done)
 pub fn is_empty(balance: u64) -> bool {
-    todo!()
+    balance ==0
 }
