@@ -7,8 +7,7 @@
 /// Solana charges 5_000 lamports per signature. This is only the base fee;
 /// priority fees are added separately.
 pub fn base_fee(signatures: u64) -> u64 {
-    let fee = signatures * 5_000;
-    fee
+    signatures * 5_000
 }
 
 /// Sum every amount in the slice.
