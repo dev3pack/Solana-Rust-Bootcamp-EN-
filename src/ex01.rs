@@ -13,8 +13,7 @@ pub const LAMPORTS_PER_SOL: u64 = 1_000_000_000;
 ///
 /// `sol_to_lamports(2)` should return `2_000_000_000`.
 pub fn sol_to_lamports(sol: u64) -> u64 {
-    let lamports = sol * LAMPORTS_PER_SOL;
-    lamports
+    sol * LAMPORTS_PER_SOL;
 }
 
 /// Convert lamports into whole SOL, dropping any remainder.
@@ -26,8 +25,7 @@ pub fn lamports_to_sol(lamports: u64) -> u64 {
 
 /// Add a bonus to a balance and return the new balance.
 pub fn apply_bonus(balance: u64, bonus: u64) -> u64 {
-    let new_balance = balance + bonus;
-    new_balance
+    balance + bonus;
 }
 
 /// Double a value.
@@ -41,6 +39,5 @@ pub fn double(value: u64) -> u64 {
 
 /// Return `true` when the balance is zero.
 pub fn is_empty(balance: u64) -> bool {
-    let is_empty = balance == 0;
-    is_empty
+   balance == 0;
 }
